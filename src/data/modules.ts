@@ -1,0 +1,58 @@
+import type { Module } from '../types';
+
+export const modules: Module[] = [
+  {
+    id: 'apex-basics',
+    title: 'Apex Basics',
+    description: 'Learn the fundamentals of the Apex programming language — variables, control flow, collections, and classes.',
+    icon: 'Code2',
+    color: '#0176D3',
+    lessons: ['apex-variables', 'apex-strings', 'apex-conditionals', 'apex-loops', 'apex-lists', 'apex-sets', 'apex-maps', 'apex-classes'],
+    estimatedHours: 4,
+  },
+  {
+    id: 'soql',
+    title: 'SOQL',
+    description: 'Master Salesforce Object Query Language to retrieve records from the Salesforce database.',
+    icon: 'Database',
+    color: '#06A59A',
+    lessons: ['soql-basics'],
+    estimatedHours: 2,
+  },
+  {
+    id: 'dml',
+    title: 'DML Operations',
+    description: 'Learn how to create, update, delete, and upsert records using Data Manipulation Language.',
+    icon: 'Save',
+    color: '#FF5D2D',
+    lessons: ['apex-dml'],
+    estimatedHours: 2,
+  },
+  {
+    id: 'triggers',
+    title: 'Apex Triggers',
+    description: 'Automate Salesforce processes by responding to record events with Apex triggers.',
+    icon: 'Zap',
+    color: '#9050E9',
+    lessons: [],
+    estimatedHours: 3,
+  },
+  {
+    id: 'lwc',
+    title: 'Lightning Web Components',
+    description: 'Build modern Salesforce UIs with the Lightning Web Components framework.',
+    icon: 'Layout',
+    color: '#FFC849',
+    lessons: [],
+    estimatedHours: 5,
+  },
+  {
+    id: 'integrations',
+    title: 'Integrations',
+    description: 'Connect Salesforce to external systems using REST APIs and callouts.',
+    icon: 'Globe',
+    color: '#2E844A',
+    lessons: [],
+    estimatedHours: 4,
+  },
+];
