@@ -1,9 +1,27 @@
-# SF Dev Academy
+# SF Dev Academy 
 
-SF Dev Academy is a web-based Salesforce learning project.
+Welcome to **SF Dev Academy** – a learning platform designed to help Salesforce enthusiasts learn, practice, and strengthen their Salesforce skills.
 
-The project is hosted using GitHub Pages.
+##  Features
 
-## Repository
+- Salesforce learning resources
+- Apex programming tutorials
+- Hands-on coding challenges
+- Quizzes and knowledge checks
+- Learning progress tracking
 
-https://github.com/svattumilli-coder/sfdc-simplified
+##  Technologies Used
+
+- HTML
+- CSS
+- JavaScript
+- React
+
+##  Live Application
+
+[Visit SF Dev Academy](https://svattumilli-coder.github.io/sfdc-simplified/#/apex)
+
+##  Repository
+
+[GitHub Repository](https://github.com/svattumilli-coder/sfdc-simplified)
+
