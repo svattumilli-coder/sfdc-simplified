@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Target, Clock, ChevronDown, ChevronUp, Code2, Star } from 'lucide-react';
+import { Target, Clock, ChevronDown, ChevronUp } from 'lucide-react';
 import { missions } from '../data/missions';
 import type { Difficulty } from '../types';
+import MissionEditor from '../components/Mission/MissionEditor';
 
 const diffColors: Record<Difficulty, string> = {
   beginner: 'bg-green-100 text-green-800',
@@ -83,52 +84,33 @@ export function Missions() {
             </div>
 
             {expanded === mission.id && (
-              <div className="mt-6 pt-6 border-t border-sf-gray-2 space-y-5">
-                {/* Scenario */}
-                <div>
-                  <h4 className="font-semibold text-sf-gray-8 mb-2">Business Scenario</h4>
-                  <div className="bg-sf-blue/5 border-l-4 border-sf-blue p-4 rounded-r-lg">
-                    <p className="text-sm text-sf-gray-7 leading-relaxed">{mission.scenario}</p>
+              <div className="mt-6 pt-6 border-t border-sf-gray-2">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {/* LEFT: Scenario + Requirements */}
+                  <div className="space-y-5">
+                    <div>
+                      <h4 className="font-semibold text-sf-gray-8 mb-2">Business Scenario</h4>
+                      <div className="bg-sf-blue/5 border-l-4 border-sf-blue p-4 rounded-r-lg">
+                        <p className="text-sm text-sf-gray-7 leading-relaxed whitespace-pre-line">{mission.scenario}</p>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-sf-gray-8 mb-2">Requirements</h4>
+                      <ol className="space-y-2">
+                        {mission.requirements.map((req, i) => (
+                          <li key={i} className="flex gap-3 text-sm">
+                            <span className="flex-shrink-0 w-5 h-5 rounded-full bg-sf-purple text-white text-xs flex items-center justify-center font-bold">
+                              {i + 1}
+                            </span>
+                            <span className="text-sf-gray-7">{req}</span>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
                   </div>
-                </div>
 
-                {/* Requirements */}
-                <div>
-                  <h4 className="font-semibold text-sf-gray-8 mb-2">Requirements</h4>
-                  <ol className="space-y-2">
-                    {mission.requirements.map((req, i) => (
-                      <li key={i} className="flex gap-3 text-sm">
-                        <span className="flex-shrink-0 w-5 h-5 rounded-full bg-sf-purple text-white text-xs flex items-center justify-center font-bold">
-                          {i + 1}
-                        </span>
-                        <span className="text-sf-gray-7">{req}</span>
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-
-                {/* Starter Code */}
-                {mission.starterCode && (
-                  <div>
-                    <h4 className="font-semibold text-sf-gray-8 mb-2 flex items-center gap-2">
-                      <Code2 className="w-4 h-4 text-sf-teal" />
-                      Starter Template
-                    </h4>
-                    <pre className="code-block text-xs whitespace-pre-wrap">{mission.starterCode}</pre>
-                  </div>
-                )}
-
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-                  <div className="flex items-center gap-2 text-yellow-800 text-sm font-medium mb-1">
-                    <Star className="w-4 h-4" /> Where to Build This
-                  </div>
-                  <p className="text-xs text-yellow-700">
-                    This mission is designed for a real Salesforce Developer Edition org. Create one free at{' '}
-                    <a href="https://developer.salesforce.com/signup" className="underline" target="_blank" rel="noreferrer">
-                      developer.salesforce.com/signup
-                    </a>{' '}
-                    and use the Developer Console or VS Code + Salesforce Extensions.
-                  </p>
+                  {/* RIGHT: Inline editor */}
+                  <MissionEditor mission={mission} />
                 </div>
               </div>
             )}

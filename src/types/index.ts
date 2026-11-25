@@ -29,6 +29,19 @@ export interface TestCase {
   description: string;
   pattern: string; // regex pattern to check in submitted code
   errorMessage: string;
+  inputData?: string;        // shown in LeetCode-style panel
+  expectedOutput?: string;   // shown in LeetCode-style panel
+  outputPatterns?: string[]; // multiple accepted patterns (OR logic)
+}
+
+export interface TestScenario {
+  id: string;
+  label: string;
+  inputDisplay: string;
+  inputs?: Record<string, unknown>;
+  expectedOutput: string[];
+  methodCall?: string;      // JS expression to call after class is defined
+  expectedReturn?: unknown; // exact return value to compare against
 }
 
 export interface Challenge {
@@ -43,6 +56,7 @@ export interface Challenge {
   solutionExplanation: string;
   testCases: TestCase[];
   difficulty: Difficulty;
+  scenarios?: TestScenario[];
 }
 
 export interface Lesson {
@@ -83,6 +97,15 @@ export interface UserProgress {
   badges: string[];
 }
 
+export interface MissionTestCase {
+  id: string;
+  description: string;
+  pattern: string;
+  errorMessage: string;
+  hint?: string;
+  exampleFix?: string;
+}
+
 export interface Mission {
   id: string;
   title: string;
@@ -95,6 +118,9 @@ export interface Mission {
   estimatedHours: number;
   starterCode?: string;
   solution?: string;
+  hints?: string[];
+  testCases?: MissionTestCase[];
+  scenarios?: TestScenario[];
 }
 
 export interface SOQLRecord {
